@@ -2,6 +2,7 @@
 const burger = document.querySelector("#burger-menu");
 const ul = document.querySelector("nav ul");
 const nav = document.querySelector("nav");
+const theme =document.querySelector("#theme")
 
 // Scroll to top selection
 const scrollUp = document.querySelector("#scroll-up");
@@ -43,51 +44,47 @@ window.addEventListener('focus', ()=>{
 
 //change mode dark-light
 
-let title2= document.querySelector(".bio-title")
-let sesionAbout= document.querySelector(".more-about")
-let sesionAboutTitle= document.querySelector(".h2About")
-let sesionSkillsTitle= document.querySelector(".h2Skills")
-let sesionProjectsTitle= document.querySelector(".h2Projects")
-let sesionContactTitle= document.querySelector(".h2Contact")
-let sesionAboutP= document.querySelector("p")
-let projects= document.querySelector(".projects")
-let projectsContainer= document.querySelector(".projects-container")
-let footer= document.querySelector("footer")
-let footerP= document.querySelector(".copy")
+const sections=document.querySelectorAll("section")
+const footer= document.querySelector("footer")
+const h2= document.querySelectorAll("h2")
+const parrafos= document.querySelectorAll(".copy")
 
 const themeDark= ()=>{
   document.body.style.backgroundColor= "black";
   document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
-  title2.style.color= "white"
-  sesionAbout.style.backgroundColor= "black"
-  sesionAboutTitle.style.color= "white";
-  sesionContactTitle.style.color= "white";
-  sesionSkillsTitle.style.color= "white";
-  sesionProjectsTitle.style.color= "white";
-  sesionAboutP.style.color="white"
-  projects.style.backgroundColor="black"
-  projectsContainer.style.backgroundColor="black"
+   for (const titulo of h2) {
+    titulo.style.color= "white"
+  }
+   for (const parrafo of parrafos) {
+    parrafo.style.color="white"
+  }
+   for (const section of sections) {
+    section.style.backgroundColor="black"
+  }
   footer.style.backgroundColor="black"
-  footerP.style.color="white"
+  
 }
 
 const themeLight= ()=>{
   document.body.style.backgroundColor= "white";
   document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
-  title2.style.color= "black"
-  sesionAbout.style.backgroundColor= "white"
-  sesionAboutTitle.style.color= "black"
-  sesionAboutP.style.color="black"
-  sesionContactTitle.style.color= "black";
-  sesionSkillsTitle.style.color= "black";
-  sesionProjectsTitle.style.color= "black";
-  projects.style.backgroundColor="white"
-  projectsContainer.style.backgroundColor="white"
+  for (const titulo of h2) {
+    titulo.style.color= "black"
+  }
+  for (const parrafo of parrafos) {
+    parrafo.style.color="black"
+  }
+  for (const section of sections) {
+    section.style.backgroundColor="white"
+  }
   footer.style.backgroundColor="white"
-  footerP.style.color="black"
+  
 }
 
-const changeTheme = ()=>{
+theme.addEventListener("click", () => {
   document.body.style.backgroundColor === "white"?
-   themeDark() : themeLight()
-}
+  themeDark() : themeLight()
+});
+/* const changeTheme = ()=>{
+  
+} */
