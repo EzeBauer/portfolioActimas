@@ -1,14 +1,23 @@
+const $= (selector, type=null)=>{
+  if(type=='all'){
+    return document.querySelectorAll(selector);
+  }
+  return document.querySelector(selector);
+}
+
+
 // Nav hamburgerburger selections
-const burger = document.querySelector("#burger-menu");
-const ul = document.querySelector("nav ul");
-const nav = document.querySelector("nav");
-const theme =document.querySelector("#theme")
+const burger = $("#burger-menu");
+const ul = $("nav ul");
+const nav = $("nav");
+const theme =$("#theme")
+const submitForm = $(".submit-form")
 
 // Scroll to top selection
-const scrollUp = document.querySelector("#scroll-up");
+const scrollUp = $("#scroll-up");
 
 // Select nav links
-const navLink = document.querySelectorAll(".nav-link");
+const navLink = $(".nav-link", "all");
 
 // Hamburger menu function
 burger.addEventListener("click", () => {
@@ -44,19 +53,20 @@ window.addEventListener('focus', ()=>{
 
 //change mode dark-light
 
-const sections=document.querySelectorAll("section")
-const footer= document.querySelector("footer")
-const h2= document.querySelectorAll("h2")
-const parrafos= document.querySelectorAll(".copy")
+const sections=$("section", "all")
+const footer= $("footer")
+const h2= $("h2", "all")
+const paragraphs= $(".copy", "all")
+
 
 const themeDark= ()=>{
   document.body.style.backgroundColor= "black";
-  document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
-   for (const titulo of h2) {
-    titulo.style.color= "white"
+  $("#dl-icon").setAttribute("class", "bi bi-sun-fill");
+   for (const title of h2) {
+    title.style.color= "white"
   }
-   for (const parrafo of parrafos) {
-    parrafo.style.color="white"
+   for (const paragraph of paragraphs) {
+    paragraph.style.color="white"
   }
    for (const section of sections) {
     section.style.backgroundColor="black"
@@ -67,17 +77,17 @@ const themeDark= ()=>{
 
 const themeLight= ()=>{
   document.body.style.backgroundColor= "white";
-  document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
-  for (const titulo of h2) {
-    titulo.style.color= "black"
+  $("#dl-icon").setAttribute("class", "bi bi-moon-fill");
+  for (const title of h2) {
+    title.style.color= "black"
   }
-  for (const parrafo of parrafos) {
-    parrafo.style.color="black"
+  for (const paragraph of paragraphs) {
+    paragraph.style.color="black"
   }
   for (const section of sections) {
     section.style.backgroundColor="white"
   }
-  footer.style.backgroundColor="white"
+   footer.style.backgroundColor="white"
   
 }
 
@@ -85,6 +95,15 @@ theme.addEventListener("click", () => {
   document.body.style.backgroundColor === "white"?
   themeDark() : themeLight()
 });
-/* const changeTheme = ()=>{
+
+
+
+submitForm.addEventListener("mouseover", () => {
+  submitForm.setAttribute("value", "Enviame ya, no dudes!!")
   
-} */
+});
+submitForm.addEventListener("mouseout", () => {
+  submitForm.setAttribute("value", "Enviar");
+});
+
+

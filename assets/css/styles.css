@@ -101,6 +101,7 @@ nav ul li {
 /* Navbar ends */
 
 /* Hero section */
+
 .hero {
   display: flex;
   align-items: center;
@@ -111,13 +112,14 @@ nav ul li {
   margin: auto;
 }
 
-.hero img {
-  height: 37.5rem;
-  width: 37.5rem;
+.hero-img {
+  height: 27.5rem;
+  width: 27.5rem;
   border-radius: 50%;
   transition: 400ms;
   box-shadow: 10px 10px 30px 15px #000000;
 }
+
 .hero img:hover{
    opacity: 0.3;
    
